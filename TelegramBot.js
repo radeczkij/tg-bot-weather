@@ -98,7 +98,11 @@ bot.on("callback_query", async (call) => {
   const result = filterWeather(rawWeather);
   let id = call.message.chat.id;
 
-  const toTextFormater = (result) => {};
+  const toTextFormater = async (result) => {
+    const elements = result.map((el) => {
+      f
+    })
+  };
 
   switch (call.data) {
     case "3hours":
