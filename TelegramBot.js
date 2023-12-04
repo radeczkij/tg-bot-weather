@@ -1,8 +1,10 @@
+import dotenv from "dotenv";
 import TelegramBot from "node-telegram-bot-api";
 import { weatherThreeHours, weatherSixHours } from "./functions/getWeather.js";
 import { getExchange } from "./functions/getCurrency.js";
+dotenv.config();
 
-const token = "5414468954:AAH2iqtR0dXxTbqmv2nCZd5BsTVOUjqPlFw";
+const token = process.env.TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {

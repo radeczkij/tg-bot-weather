@@ -11,15 +11,19 @@ const getPrivatUrl = async () => {
 
 let dataMono = [];
 const getMonoUrl = async () => {
-  setInterval(async () => {
-    try {
-      const { data } = await axios.get(monoUrl);
-      dataMono = data;
-    } catch (e) {
-      console.log(e);
-    }
-  }, 62000);
+  await getMonoData();
+  setInterval(getMonoData, 62000);
 };
+
+const getMonoData = async () => {
+  try {
+    const { data } = await axios.get(monoUrl);
+    dataMono = data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 getMonoUrl();
 
 const getExchange = async (currency) => {
